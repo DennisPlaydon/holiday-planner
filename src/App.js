@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
+import Titles from "./components/Titles";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
   render() {
@@ -8,7 +10,14 @@ class App extends Component {
         <div className="wrapper">
           <div className="main">
             <div className="container">
-              <h1>Hello World</h1>
+              <div className="row">
+                <div className="col-xs-5 title-container">
+                  <Titles />
+                </div>
+                <div className="col-xs-7 form-container">
+                  <h1> new titlesssssssssss</h1>
+                </div>
+              </div>
             </div>
           </div>
         </div>
