@@ -1,29 +1,39 @@
 import React from "react";
+import HolidayButton from "./HolidayButton";
 
 const Holiday = props => (
-  <div className="weather__info text-left">
+  <div className="holiday__info text-left">
     {props.holidayName && (
-      <p className="weather__key">
+      <p className="holiday__key">
         Name:
-        <span className="weather__value"> {props.holidayName}</span>
+        <span className="holiday__value"> {props.holidayName} </span>
       </p>
     )}
     {props.holidayDescription && (
-      <p className="weather__key">
+      <p className="holiday__key">
         Description:
-        <span className="weather__value"> {props.holidayDescription}</span>
+        <span className="holiday__value"> {props.holidayDescription}</span>
+      </p>
+    )}
+    {props.date && (
+      <p className="holiday__key">
+        Date:
+        <span className="holiday__value"> {props.date}</span>
       </p>
     )}
     {props.daysUntil && (
-      <p className="weather__key">
-        Countdown:
-        <span className="weather__value">
-          {" "}
-          {Math.ceil(props.daysUntil)} days
-        </span>
-      </p>
+      <React.Fragment>
+        <p className="holiday__key">
+          Countdown:
+          <span className="holiday__value">
+            {" "}
+            {Math.ceil(props.daysUntil)} days
+          </span>
+        </p>
+        <HolidayButton getNextHoliday={props.getNextHoliday} />
+      </React.Fragment>
     )}
-    {props.error && <p className="weather__key">{props.error}</p>}
+    {props.error && <p className="holiday__key">{props.error}</p>}
   </div>
 );
 
