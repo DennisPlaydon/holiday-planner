@@ -3,13 +3,15 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Titles from "./components/Titles";
 import CountryInput from "./components/CountryInput";
-import Holidays from "./components/Holidays";
+import Holiday from "./components/Holiday";
 
 var API_KEY = process.env.REACT_APP_API_KEY;
 
 class App extends Component {
   state = {
-    holidays: undefined,
+    holidayName: undefined,
+    holidayDescription: undefined,
+    daysUntil: undefined,
     error: undefined
   };
   getHolidays = async e => {
@@ -28,7 +30,10 @@ class App extends Component {
       this.getNextHoliday(data.response.holidays);
     } else {
       this.setState({
-        error: "Please enter a valid country"
+        holidayName: undefined,
+        holidayDescription: undefined,
+        daysUntil: undefined,
+        error: "Please enter a valid country code"
       });
     }
   };
@@ -36,8 +41,7 @@ class App extends Component {
   getNextHoliday(holidays) {
     var i;
     var nextHoliday = holidays[0];
-    var todaysDate = new Date("2019-12-24");
-    console.log(`Today is ${todaysDate} and ${todaysDate < nextHoliday}`);
+    var todaysDate = new Date();
     for (i = 1; i < holidays.length; i++) {
       var holidayDate = new Date(holidays[i].date.iso);
       if (
@@ -55,8 +59,13 @@ class App extends Component {
         }
       }
     }
-    console.log("NEXT HOLIDAY");
-    console.log(nextHoliday);
+    this.setState({
+      holidayName: nextHoliday.name,
+      holidayDescription: nextHoliday.description,
+      daysUntil:
+        (new Date(nextHoliday.date.iso) - todaysDate) / (1000 * 60 * 60 * 24),
+      error: ""
+    });
   }
   render() {
     return (
@@ -65,14 +74,17 @@ class App extends Component {
           <div className="main">
             <div className="container">
               <div className="row">
-                <div className="col-xs-5 title-container">
+                <div className="col-xs-5 col-lg-6 title-container">
                   <Titles />
                 </div>
-                <div className="col-xs-7 form-container">
+                <div className="col-xs-7 col-lg-6 form-container">
                   <CountryInput getHolidays={this.getHolidays} />
-                  <Holidays holidays={this.state.holidays} />
-                  {/* holidays={this.state.holidays}
-                    error={this.state.error} */}
+                  <Holiday
+                    holidayName={this.state.holidayName}
+                    holidayDescription={this.state.holidayDescription}
+                    daysUntil={this.state.daysUntil}
+                    error={this.state.error}
+                  />
                 </div>
               </div>
             </div>
