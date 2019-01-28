@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/holiday-planner/static/css/1.bb41ba7d.chunk.css"
   },
   {
-    "revision": "71716bb7be67f16c8b12582e33934648",
+    "revision": "61886cdd2926d34416b4f00c4ed1d6fe",
     "url": "/holiday-planner/index.html"
   }
 ];
