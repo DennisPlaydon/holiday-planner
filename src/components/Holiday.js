@@ -1,7 +1,7 @@
 import React from "react";
 
 const Holiday = props => (
-  <div className="weather__info">
+  <div className="weather__info text-left">
     {props.holidayName && (
       <p className="weather__key">
         Name:
@@ -16,8 +16,11 @@ const Holiday = props => (
     )}
     {props.daysUntil && (
       <p className="weather__key">
-        Day until:
-        <span className="weather__value"> {Math.ceil(props.daysUntil)}</span>
+        Countdown:
+        <span className="weather__value">
+          {" "}
+          {Math.ceil(props.daysUntil)} days
+        </span>
       </p>
     )}
     {props.error && <p className="weather__key">{props.error}</p>}
