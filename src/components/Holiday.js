@@ -20,6 +20,7 @@ const Holiday = props => (
         <span className="weather__value"> {Math.ceil(props.daysUntil)}</span>
       </p>
     )}
+    {props.error && <p className="weather__key">{props.error}</p>}
   </div>
 );
 
