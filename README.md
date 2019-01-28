@@ -1,10 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 # Holiday Planner
 
 This holiday planner shows you the next holiday with some information about the holiday. You enter a country code and it will return the next holiday for that country. If you don't enter anything it defaults to New Zealand's holidays. 
 
-This is a simple one page website created with React. It utilises ![Calenderific's](https://calendarific.com/api-documentation) API to get a list of all holidays. This application then compares all holidays and finds the next one coming up. 
+This is a simple one page website created with React, more specifically it was bootstrapped with create react app. It utilises ![Calenderific's](https://calendarific.com/api-documentation) API to get a list of all holidays. This application then compares all holidays and finds the next one coming up. 
 
 ## Future plans
 
