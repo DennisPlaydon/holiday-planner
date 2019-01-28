@@ -9,8 +9,10 @@ var API_KEY = process.env.REACT_APP_API_KEY;
 
 class App extends Component {
   state = {
+    holidays: undefined,
     holidayName: undefined,
     holidayDescription: undefined,
+    date: undefined,
     daysUntil: undefined,
     error: undefined
   };
@@ -27,7 +29,8 @@ class App extends Component {
     var data = await api_call.json();
     console.log(data.response.holidays);
     if (data.response.length !== 0) {
-      this.getNextHoliday(data.response.holidays);
+      this.setState({ holidays: data.response.holidays });
+      this.getNextHoliday(new Date());
     } else {
       this.setState({
         holidayName: undefined,
@@ -38,10 +41,11 @@ class App extends Component {
     }
   };
 
-  getNextHoliday(holidays) {
-    var i;
+  getNextHoliday(todaysDate) {
+    var holidays = this.state.holidays;
     var nextHoliday = holidays[0];
-    var todaysDate = new Date();
+
+    var i;
     for (i = 1; i < holidays.length; i++) {
       var holidayDate = new Date(holidays[i].date.iso);
       if (
@@ -64,6 +68,7 @@ class App extends Component {
       holidayDescription: nextHoliday.description,
       daysUntil:
         (new Date(nextHoliday.date.iso) - todaysDate) / (1000 * 60 * 60 * 24),
+      date: nextHoliday.date.iso,
       error: ""
     });
   }
@@ -83,7 +88,9 @@ class App extends Component {
                     holidayName={this.state.holidayName}
                     holidayDescription={this.state.holidayDescription}
                     daysUntil={this.state.daysUntil}
+                    date={this.state.date}
                     error={this.state.error}
+                    getNextHoliday={this.getNextHoliday}
                   />
                 </div>
               </div>
