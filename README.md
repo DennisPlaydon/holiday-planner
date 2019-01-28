@@ -11,7 +11,7 @@ Future plans include:
 - Show all holidays
 - Cycle through upcoming holidays by clicking a `next holiday` button
 
-![Website image](https://imgur.com/a/2nGveCh)
+![Website image](https://i.imgur.com/VC1wjuL.jpg)
 
 This website is live and deployed to github pages. You can find it at:
 https://dennisplaydon.github.io/holiday-planner/
