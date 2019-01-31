@@ -30,7 +30,7 @@ const Holiday = props => (
             {Math.ceil(props.daysUntil)} days
           </span>
         </p>
-        <HolidayButton getNextHoliday={props.getNextHoliday} />
+        {/* <HolidayButton getNextHoliday={props.getNextHoliday} /> */}
       </React.Fragment>
     )}
     {props.error && <p className="holiday__key">{props.error}</p>}
