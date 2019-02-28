@@ -74,25 +74,23 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
-        <div className="wrapper">
-          <div className="main">
-            <div className="container">
-              <div className="row">
-                <div className="col-xs-5 col-lg-6 title-container">
-                  <Titles />
-                </div>
-                <div className="col-xs-7 col-lg-6 form-container">
-                  <CountryInput getHolidays={this.getHolidays} />
-                  <Holiday
-                    holidayName={this.state.holidayName}
-                    holidayDescription={this.state.holidayDescription}
-                    daysUntil={this.state.daysUntil}
-                    date={this.state.date}
-                    error={this.state.error}
-                    getNextHoliday={this.getNextHoliday}
-                  />
-                </div>
+      <div className="wrapper">
+        <div className="main">
+          <div className="container">
+            <div className="row">
+              <div className="col-xs-5 col-lg-6 title-container">
+                <Titles />
+              </div>
+              <div className="col-xs-7 col-lg-6 form-container">
+                <CountryInput getHolidays={this.getHolidays} />
+                <Holiday
+                  holidayName={this.state.holidayName}
+                  holidayDescription={this.state.holidayDescription}
+                  daysUntil={this.state.daysUntil}
+                  date={this.state.date}
+                  error={this.state.error}
+                  getNextHoliday={this.getNextHoliday}
+                />
               </div>
             </div>
           </div>
